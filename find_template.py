@@ -48,7 +48,7 @@ cv2.waitKey()
 score = cv2.matchTemplate(test_gray, template_gray, cv2.TM_CCOEFF_NORMED)
 _, val, _, loc = cv2.minMaxLoc(score)
 
-thresh = args["thresh"] if args["thresh"] else 0.7
+thresh = float(args["thresh"]) if args["thresh"] else 0.7
 if val > thresh:
     print(f"Template was found with confidence {val*100:.2f}")
     # Отрисовка ограничивающего квадрата шаблона на изображении в случае его наличия
